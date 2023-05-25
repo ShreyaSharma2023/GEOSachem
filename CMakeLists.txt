@@ -21,7 +21,7 @@ set (srcs
   GACL_EmissionsMod.F90
   GACL_ReactionRatesMod.F90
   GACL_DryDepositionMod.F90
-  GEOS_AChemGridCompMod.F90
+  GEOSachem_GridCompMod.F90
   )
 
 esma_add_library (
@@ -34,9 +34,9 @@ set_target_properties (${this} PROPERTIES COMPILE_FLAGS ${PP})
 
 new_esma_generate_automatic_code (
   ${this} GEOSachem_Registry.rc
-  "GEOS_AChem_ExportSpec___.h;GEOS_AChem_GetPointer___.h"
-  GEOS_AChem_History___.rc
-  ${include_GEOSachem_GridComp} ${esma_etc}
+  "GEOSachem_ExportSpec___.h;GEOSachem_GetPointer___.h"
+  GEOSachem_History___.rc
+  ${include_GEOSachem} ${esma_etc}
   "-f"
   )
 
