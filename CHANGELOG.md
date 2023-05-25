@@ -17,3 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Deprecated
 
+## [1.0.0] - 2023-MM-DD
+
+### Added
+
+- Initial release of GEOSachem based on GEOSachem_GridComp code from GEOSchem_GridComp v1.13.1
