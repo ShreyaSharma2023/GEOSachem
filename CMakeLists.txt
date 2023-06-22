@@ -21,13 +21,15 @@ set (srcs
   GACL_EmissionsMod.F90
   GACL_ReactionRatesMod.F90
   GACL_DryDepositionMod.F90
+  Chem_ConstMod.F90
+  DryDepositionMod.F90
   GEOSachem_GridCompMod.F90
   )
 
 esma_add_library (
   ${this}
   SRCS ${srcs}
-  DEPENDENCIES Chem_Shared MAPL GMAO_mpeu esmf NetCDF::NetCDF_Fortran
+  DEPENDENCIES MAPL GMAO_mpeu esmf NetCDF::NetCDF_Fortran
   )
 target_compile_definitions (${this} PRIVATE MAPL_MODE GEOS5)
 set_target_properties (${this} PROPERTIES COMPILE_FLAGS ${PP})
@@ -45,4 +47,9 @@ foreach ( file ${rc_files} )
    get_filename_component( dir ${file} DIRECTORY )
    install( FILES ${file} DESTINATION etc/${dir} )
 endforeach()
+
+Add_library(GEOSachem_GridComp STATIC
+	GEOSachem_GridCompMod.F90
+)
+target_link_libraries(GEOSachem_GridComp PUBLIC GeosCore)
 
